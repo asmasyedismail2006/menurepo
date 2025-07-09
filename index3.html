@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabulous Dress Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bootstrap-5.3.3-dist/css/bootstrap-grid.min.css" >
+    <link href="/bootstrap-5.3.3-dist/css/bootstrap-grid.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* Custom Navbar */
+.custom-navbar {
+  background: linear-gradient(90deg, #ffdde1, #d36a78);
+  padding: 12px 0;
+}
+
+.stylish-logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  }
+
+.stylish-logo span {
+  color: #4b134f;
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 500;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link.active {
+  color: #4b134f;
+  text-decoration: underline;
+}
+
+.navbar-toggler {
+  border: none;
+}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(90deg, #f7cdd2, #e7bcc2);
+      
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #d63384;
+      
+    }
+    .card {
+      transition: transform 0.3s;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(218, 5, 5, 0.1);
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      object-fit: cover;
+      height: 300px;
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+    <!-- Unique Navbar -->
+<nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
+  <div class="container">
+    <a class="navbar-brand stylish-logo" href="#">Dress<span>Up</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index4.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+  <!-- Hero Banner -->
+  <div class=" bg-light text-center py-5"style="border-style:groove;border-color: #d63384;border: width 10px;">
+    <h1 class="display-4 text-dark" >Discover Your Fabulous Style</h1>
+    <p class="lead text-muted">Shop the latest fashion dresses for every occasion</p>
+  </div>
+
+  <!-- Product Section -->
+  <div class="container my-5" id="products";>
+    <h2 class="text-center mb-4 text-dark">Our Collection</h2>
+    <div class="row" id="productGrid" ></div>
+  </div>
+
+  <!-- Footer -->;
+  <footer>
+    <p>&copy; 2025 DressStore | All Rights Reserved</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript for Dynamic Products -->
+  <script>
+    const dresses = [
+      { name: "Elegant Evening Gown", price: 2999, image:"image/h.jpg"},
+      { name: "Casual Floral Dress", price: 1599, image: "image/j.jpg" },
+      { name: "Formal Work Dress", price: 1999, image: "image/f.jpg" },
+      { name: "Summer Maxi Dress", price: 1799, image: "image/summer.jfif" },
+      { name: "Party Bodycon Dress", price: 2499, image: "image/p.jpg" },
+      { name: "Traditional Ethnic Wear", price: 1899, image: "image/traditional.jfif" },
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+
+    dresses.forEach(dress => {
+      const col = document.createElement('div');
+      col.className = 'col-md-4 mb-4';
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const img = document.createElement('img');
+      img.src = dress.image;
+      img.className = 'card-img-top';
+
+      const cardBody = document.createElement('div');
+      cardBody.className = 'card-body text-center';
+
+      const title = document.createElement('h5');
+      title.textContent = dress.name;
+
+      const price = document.createElement('p');
+      price.className = 'text-success fw-bold';
+      price.textContent = `₹${dress.price}`;
+
+      cardBody.appendChild(title);
+      cardBody.appendChild(price);
+      card.appendChild(img);
+      card.appendChild(cardBody);
+      col.appendChild(card);
+      productGrid.appendChild(col);
+    });
+  </script>
+
+</body>
+</html>
